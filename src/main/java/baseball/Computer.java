@@ -2,6 +2,7 @@ package baseball;
 
 import java.util.ArrayList;
 import java.util.List;
+import ui.Output;
 import utils.RandomUtils;
 
 public class Computer {
@@ -16,6 +17,25 @@ public class Computer {
     // 1에서 9까지 서로 다른 임의의 수 3개를 생성
     public List<Integer> getRandomNumbers() {
         return new ArrayList<>(randomNumbers);
+    }
+
+    // 입력 값과 컴퓨터의 임의의 수 3자리 값과 비교 -> 힌트 출력
+    public void printResult(List<Integer> numbers) {
+        int strikeCount = 0;
+        int ballCount = 0;
+        for (int i = 0; i < randomNumbers.size(); i++) {
+            // 스트라이크인 경우
+            if (randomNumbers.get(i) == numbers.get(i)) {
+                strikeCount += 1;
+                continue;
+            }
+
+            // 볼인 경우
+            if (randomNumbers.contains(numbers.get(i))) {
+                ballCount += 1;
+            }
+        }
+        Output.printStrikeCountAndBallCount(strikeCount, ballCount);
     }
 
     private void setRandomNumbers() {
