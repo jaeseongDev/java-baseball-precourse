@@ -14,11 +14,6 @@ public class Computer {
         setRandomNumbers();
     }
 
-    // 1에서 9까지 서로 다른 임의의 수 3개를 생성
-    public List<Integer> getRandomNumbers() {
-        return new ArrayList<>(randomNumbers);
-    }
-
     // 입력 값과 컴퓨터의 임의의 수 3자리 값과 비교 -> 힌트 출력
     public void printResult(List<Integer> numbers) {
         int strikeCount = 0;
