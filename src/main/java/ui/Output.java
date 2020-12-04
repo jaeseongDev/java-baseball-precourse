@@ -5,5 +5,5 @@ public class Output {
 
     public static void printRequestNumbers() {
         System.out.print(REQUEST_NUMBERS);
-    };
+    }
 }
