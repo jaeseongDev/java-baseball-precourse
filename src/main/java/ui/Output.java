@@ -10,10 +10,11 @@ public class Output {
         System.out.print(REQUEST_NUMBERS);
     }
 
+
+
     public static void printStrikeCountAndBallCount(int strikeCount, int ballCount) {
         if (ballCount > 0) {
-            System.out.println(ballCount + BALL);
-            System.out.print(" ");
+            System.out.print(ballCount + BALL + " ");
         }
         if (strikeCount > 0) {
             System.out.print(strikeCount + STRIKE);

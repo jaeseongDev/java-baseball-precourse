@@ -12,6 +12,7 @@ public class Computer {
 
     public Computer() {
         setRandomNumbers();
+        System.out.println(randomNumbers);
     }
 
     // 입력 값과 컴퓨터의 임의의 수 3자리 값과 비교 -> 힌트 출력
@@ -31,6 +32,15 @@ public class Computer {
             }
         }
         Output.printStrikeCountAndBallCount(strikeCount, ballCount);
+    }
+
+    public boolean isCorrectNumbers(List<Integer> numbers) {
+        for (int i = 0; i < randomNumbers.size(); i++) {
+            if (randomNumbers.get(i) != numbers.get(i)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void setRandomNumbers() {
