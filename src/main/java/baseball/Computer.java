@@ -31,7 +31,7 @@ public class Computer {
                 ballCount += 1;
             }
         }
-        Output.printStrikeCountAndBallCount(strikeCount, ballCount);
+        Output.printResult(strikeCount, ballCount);
     }
 
     public boolean isCorrectNumbers(List<Integer> numbers) {

@@ -10,17 +10,26 @@ public class Output {
         System.out.print(REQUEST_NUMBERS);
     }
 
+    public static void printResult(int strikeCount, int ballCount) {
+        if (strikeCount > 0 || ballCount > 0) {
+            printBallAndStrikeCount(strikeCount, ballCount);
+        }
+        if (strikeCount == 0 && ballCount == 0) {
+            printNothing();
+        }
+    }
 
-
-    public static void printStrikeCountAndBallCount(int strikeCount, int ballCount) {
+    private static void printBallAndStrikeCount(int strikeCount, int ballCount) {
         if (ballCount > 0) {
             System.out.print(ballCount + BALL + " ");
         }
         if (strikeCount > 0) {
             System.out.print(strikeCount + STRIKE);
         }
-        if (strikeCount == 0 && ballCount == 0) {
-            System.out.println(NOTHING);
-        }
+        System.out.println();
+    }
+
+    private static void printNothing() {
+        System.out.println(NOTHING);
     }
 }
