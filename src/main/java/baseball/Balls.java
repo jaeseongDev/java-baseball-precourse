@@ -52,4 +52,11 @@ public class Balls {
     private boolean isBall(int index, Balls inputBalls) {
         return !(isStrike(index, inputBalls)) && balls.contains(inputBalls.getBalls().get(index));
     }
+
+    @Override
+    public String toString() {
+        return "Balls{" +
+            "balls=" + balls +
+            '}';
+    }
 }

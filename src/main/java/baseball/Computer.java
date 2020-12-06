@@ -22,12 +22,11 @@ public class Computer {
     }
 
     public boolean isCorrectNumbers(Balls balls) {
-        for (int i = 0; i < randomNumbers.getBalls().size(); i++) {
-            if (randomNumbers.getBalls().get(i) != balls.getBalls().get(i)) {
-                return false;
-            }
+        int strikeCount = randomNumbers.countStrike(balls);
+        if (strikeCount == 3) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     private void setRandomNumbers() {

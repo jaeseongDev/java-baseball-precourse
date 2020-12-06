@@ -45,4 +45,11 @@ public class Ball {
     public int hashCode() {
         return Objects.hash(ball);
     }
+
+    @Override
+    public String toString() {
+        return "Ball{" +
+            "ball=" + ball +
+            '}';
+    }
 }
