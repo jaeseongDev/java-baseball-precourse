@@ -9,4 +9,6 @@ public class ErrorMessage {
     public static final String SHOULD_INPUT_ONLY_NUMBER = "숫자만을 입력해야 합니다.";
     public static final String SHOULD_INPUT_VALID_RANGE_NUMBER =
         START_NUMBER_IN_VALID_RANGE + "에서 " + END_NUMBER_IN_VALID_RANGE + "의 숫자만 입력해야 합니다.";
+    public static final String SHOULD_BE_VALID_LENGTH_OF_BALLS =
+        Balls.VALID_LENGTH_OF_BALLS + "자리의 숫자만 입력해야 합니다.";
 }
