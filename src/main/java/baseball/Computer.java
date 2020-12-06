@@ -8,6 +8,7 @@ import utils.RandomUtils;
 public class Computer {
     private static final int START_NUMBER_IN_RANGE = 1;
     private static final int END_NUMBER_IN_RANGE = 9;
+    private static final int STRIKE_COUNT_FOR_WINNING_GAME = 3;
     private Balls randomNumbers;
 
     public Computer() {
@@ -23,7 +24,7 @@ public class Computer {
 
     public boolean isCorrectNumbers(Balls balls) {
         int strikeCount = randomNumbers.countStrike(balls);
-        if (strikeCount == 3) {
+        if (strikeCount == STRIKE_COUNT_FOR_WINNING_GAME) {
             return true;
         }
         return false;
@@ -32,7 +33,7 @@ public class Computer {
     private void setRandomNumbers() {
         List<Ball> randomNumbers = new ArrayList<>();
         // 숫자를 3개 생성할 때까지만 반복
-        while (randomNumbers.size() != 3) {
+        while (randomNumbers.size() != Balls.VALID_LENGTH_OF_BALLS) {
             addRandomNumberTo(randomNumbers);
         }
         this.randomNumbers = new Balls(randomNumbers);
