@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.stream.IntStream;
 
 public class Balls {
+
     public static final int VALID_LENGTH_OF_BALLS = 3;
     private final List<Ball> balls;
 

@@ -6,6 +6,7 @@ import ui.Output;
 import utils.RandomUtils;
 
 public class Computer {
+
     private static final int START_NUMBER_IN_RANGE = 1;
     private static final int END_NUMBER_IN_RANGE = 9;
     private static final int STRIKE_COUNT_FOR_WINNING_GAME = 3;

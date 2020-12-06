@@ -7,6 +7,7 @@ import ui.Input;
 import ui.Output;
 
 public class Game {
+
     private boolean isCorrectNumbers;
 
     public void start(Scanner scanner) {
