@@ -1,7 +1,9 @@
 package baseball;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 public class Balls {
@@ -10,6 +12,7 @@ public class Balls {
 
     public Balls(List<Ball> balls) {
         validateBallsLength(balls);
+        validateOverlap(balls);
         this.balls = balls;
     }
 
@@ -32,6 +35,13 @@ public class Balls {
     private void validateBallsLength(List<Ball> balls) {
         if (balls.size() != VALID_LENGTH_OF_BALLS) {
             throw new IllegalArgumentException(ErrorMessage.SHOULD_BE_VALID_LENGTH_OF_BALLS);
+        }
+    }
+
+    private void validateOverlap(List<Ball> balls) {
+        Set<Ball> ballsInSet = new HashSet<>(balls);
+        if (ballsInSet.size() != VALID_LENGTH_OF_BALLS) {
+            throw new IllegalArgumentException(ErrorMessage.SHOULD_NOT_INPUT_OVERLAPPED_NUMBER);
         }
     }
 
