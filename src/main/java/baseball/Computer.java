@@ -15,16 +15,15 @@ public class Computer {
         System.out.println(randomNumbers);
     }
 
-    // 입력 값과 컴퓨터의 임의의 수 3자리 값과 비교 -> 힌트 출력
     public void printResult(Balls numbers) {
         int strikeCount = randomNumbers.countStrike(numbers);
         int ballCount = randomNumbers.countBall(numbers);
         Output.printResult(strikeCount, ballCount);
     }
 
-    public boolean isCorrectNumbers(List<Ball> numbers) {
+    public boolean isCorrectNumbers(Balls balls) {
         for (int i = 0; i < randomNumbers.getBalls().size(); i++) {
-            if (randomNumbers.getBalls().get(i) != numbers.get(i)) {
+            if (randomNumbers.getBalls().get(i) != balls.getBalls().get(i)) {
                 return false;
             }
         }
