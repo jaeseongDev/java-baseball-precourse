@@ -33,7 +33,6 @@ public class Computer {
 
     private void setRandomNumbers() {
         List<Ball> randomNumbers = new ArrayList<>();
-        // 숫자를 3개 생성할 때까지만 반복
         while (randomNumbers.size() != Balls.VALID_LENGTH_OF_BALLS) {
             addRandomNumberTo(randomNumbers);
         }
