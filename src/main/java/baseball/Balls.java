@@ -17,8 +17,8 @@ public class Balls {
         this.balls = balls;
     }
 
-    public List<Ball> getBalls() {
-        return new ArrayList<>(balls);
+    public Ball get(int index) {
+        return balls.get(index);
     }
 
     public int countBall(Balls inputBalls) {
@@ -47,11 +47,11 @@ public class Balls {
     }
 
     private boolean isStrike(int index, Balls inputBalls) {
-        return balls.get(index).equals(inputBalls.getBalls().get(index));
+        return balls.get(index).equals(inputBalls.get(index));
     }
 
     private boolean isBall(int index, Balls inputBalls) {
-        return !(isStrike(index, inputBalls)) && balls.contains(inputBalls.getBalls().get(index));
+        return !(isStrike(index, inputBalls)) && balls.contains(inputBalls.get(index));
     }
 
     @Override
