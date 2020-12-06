@@ -8,7 +8,7 @@ import utils.RandomUtils;
 public class Computer {
     private static final int START_NUMBER_IN_RANGE = 1;
     private static final int END_NUMBER_IN_RANGE = 9;
-    private List<Ball> randomNumbers = new ArrayList<>();
+    private Balls randomNumbers;
 
     public Computer() {
         setRandomNumbers();
@@ -16,27 +16,15 @@ public class Computer {
     }
 
     // 입력 값과 컴퓨터의 임의의 수 3자리 값과 비교 -> 힌트 출력
-    public void printResult(List<Ball> numbers) {
-        int strikeCount = 0;
-        int ballCount = 0;
-        for (int i = 0; i < randomNumbers.size(); i++) {
-            // 스트라이크인 경우
-            if (randomNumbers.get(i).getBall() == numbers.get(i).getBall()) {
-                strikeCount += 1;
-                continue;
-            }
-
-            // TODO : 볼인 경우 - 수정 해야 함
-            if (randomNumbers.contains(numbers.get(i))) {
-                ballCount += 1;
-            }
-        }
+    public void printResult(Balls numbers) {
+        int strikeCount = randomNumbers.countStrike(numbers);
+        int ballCount = randomNumbers.countBall(numbers);
         Output.printResult(strikeCount, ballCount);
     }
 
     public boolean isCorrectNumbers(List<Ball> numbers) {
-        for (int i = 0; i < randomNumbers.size(); i++) {
-            if (randomNumbers.get(i).getBall() != numbers.get(i).getBall()) {
+        for (int i = 0; i < randomNumbers.getBalls().size(); i++) {
+            if (randomNumbers.getBalls().get(i) != numbers.get(i)) {
                 return false;
             }
         }
@@ -44,13 +32,15 @@ public class Computer {
     }
 
     private void setRandomNumbers() {
+        List<Ball> randomNumbers = new ArrayList<>();
         // 숫자를 3개 생성할 때까지만 반복
         while (randomNumbers.size() != 3) {
-            addRandomNumber();
+            addRandomNumberTo(randomNumbers);
         }
+        this.randomNumbers = new Balls(randomNumbers);
     }
 
-    private void addRandomNumber() {
+    private void addRandomNumberTo(List<Ball> randomNumbers) {
         int randomNumber = RandomUtils.nextInt(START_NUMBER_IN_RANGE, END_NUMBER_IN_RANGE);
         if (!randomNumbers.contains(randomNumber)) {
             randomNumbers.add(new Ball(randomNumber));

@@ -1,6 +1,6 @@
 package baseball;
 
-import ui.Input;
+import java.util.Objects;
 
 public class Ball {
     private int ball;
@@ -13,10 +13,6 @@ public class Ball {
     public Ball(int ball) {
         validateValidRangeNumber(ball);
         this.ball = ball;
-    }
-
-    public int getBall() {
-        return ball;
     }
 
     private int toInt(String number) {
@@ -33,4 +29,20 @@ public class Ball {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Ball ball1 = (Ball) o;
+        return ball == ball1.ball;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ball);
+    }
 }

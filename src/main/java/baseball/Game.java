@@ -23,9 +23,8 @@ public class Game {
             }
 
             // 입력한 3자리 수에 대한 결과(힌트) 출력
-            computer.printResult(numbers);
+            computer.printResult(new Balls(numbers));
             isCorrectNumbers = computer.isCorrectNumbers(numbers);
-            System.out.println(isCorrectNumbers);
         } while (!isCorrectNumbers);
     }
 }
