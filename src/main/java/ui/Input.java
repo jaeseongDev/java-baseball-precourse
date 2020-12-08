@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class Input {
 
     public static String receiveNumbers(Scanner scanner) {
-        Output.printRequestNumbers();
+        System.out.print("숫자를 입력해주세요 : ");
         return validateEmptyAndGetInput(scanner);
     }
 
     public static String receiveGameRestartOrExit(Scanner scanner) {
-        Output.printAskToRestartOrExitGame();
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         return validateEmptyAndGetInput(scanner);
     }
 
