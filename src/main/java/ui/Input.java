@@ -1,11 +1,9 @@
 package ui;
 
-import baseball.Ball;
 import baseball.Balls;
+import baseball.BallsFactory;
 import baseball.ErrorMessage;
 import baseball.GameStatus;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Input {
@@ -13,13 +11,9 @@ public class Input {
     public static Balls getBalls(Scanner scanner) {
         try {
             System.out.print("숫자를 입력해주세요 : ");
-            String input = scanner.nextLine();
-            String[] splitedInput = input.split("");
-            List<Ball> balls = new ArrayList<>();
-            for (String element : splitedInput) {
-                balls.add(new Ball(element));
-            }
-            return new Balls(balls);
+            String numbers = scanner.nextLine();
+            String[] numbersArr = numbers.split("");
+            return BallsFactory.createBalls(numbersArr);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return getBalls(scanner);

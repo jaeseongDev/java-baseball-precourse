@@ -1,7 +1,5 @@
 package baseball;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import ui.Input;
 import ui.Output;
@@ -19,7 +17,7 @@ public class Game {
         } while (!isCorrectNumbers);
         Output.printToWinGame();
         String status = Input.getGameStatus(scanner);
-        if (status == GameStatus.RESTART.getStatus()) {
+        if (status.equals(GameStatus.RESTART.getStatus())) {
             start(scanner);
         }
     }
