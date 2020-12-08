@@ -18,18 +18,9 @@ public class Game {
             isCorrectNumbers = computer.isCorrectNumbers(inputBalls);
         } while (!isCorrectNumbers);
         Output.printToWinGame();
-        inputIfRestartOrExitGame(scanner);
-    }
-
-    private void inputIfRestartOrExitGame(Scanner scanner) {
-        String status = Input.receiveGameRestartOrExit(scanner);
-        if (status.equals(GameStatus.RESTART.getStatus())) {
+        String status = Input.getGameStatus(scanner);
+        if (status == GameStatus.RESTART.getStatus()) {
             start(scanner);
-            return;
         }
-        if (status.equals(GameStatus.EXIT.getStatus())) {
-            return;
-        }
-        throw new IllegalArgumentException(ErrorMessage.SHOULD_INPUT_CORRECT_VALUE);
     }
 }

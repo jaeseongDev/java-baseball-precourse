@@ -3,6 +3,7 @@ package ui;
 import baseball.Ball;
 import baseball.Balls;
 import baseball.ErrorMessage;
+import baseball.GameStatus;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,16 +26,25 @@ public class Input {
         }
     }
 
-    public static String receiveGameRestartOrExit(Scanner scanner) {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        return validateEmptyAndGetInput(scanner);
+    public static String getGameStatus(Scanner scanner) {
+        try {
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            String input = scanner.nextLine();
+            validateGameStatus(input);
+            return input;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return getGameStatus(scanner);
+        }
     }
 
-    private static String validateEmptyAndGetInput(Scanner scanner) {
-        String input = scanner.nextLine();
-        if (input == "") {
-            throw new IllegalArgumentException(ErrorMessage.SHOULD_NOT_INPUT_EMPTY);
+    private static void validateGameStatus(String status) {
+        if (status.equals(GameStatus.RESTART.getStatus())) {
+            return;
         }
-        return input;
+        if (status.equals(GameStatus.EXIT.getStatus())) {
+            return;
+        }
+        throw new IllegalArgumentException(ErrorMessage.SHOULD_INPUT_CORRECT_VALUE);
     }
 }
