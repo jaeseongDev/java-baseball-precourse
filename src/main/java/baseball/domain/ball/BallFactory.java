@@ -18,6 +18,9 @@ public class BallFactory {
                 randomNumbers.add(randomBall);
             }
         }
+        // TODO 디버깅용
+        System.out.println(randomNumbers);
+
         return new Balls(randomNumbers);
     }
 }

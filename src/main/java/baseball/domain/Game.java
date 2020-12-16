@@ -13,7 +13,11 @@ public class Game {
     public void start(Scanner scanner)  {
         try {
             Computer computer = new Computer();
-            getInputBalls(scanner);
+            Balls inputBalls;
+            do {
+                inputBalls = getInputBalls(scanner);
+
+            } while (!computer.isCorrectAnswer(inputBalls));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             start(scanner);

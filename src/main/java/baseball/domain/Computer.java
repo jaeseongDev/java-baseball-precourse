@@ -10,10 +10,12 @@ public class Computer {
     public int countStrike(Balls inputBalls) {
         int strikeCount = 0;
         for (int i = 0; i < inputBalls.size(); i++) {
-            if (inputBalls.get(i) == balls.get(i)) {
+            if (inputBalls.get(i).equals(balls.get(i))) {
                 strikeCount += 1;
             }
         }
+        // TODO - 디버깅용
+        System.out.println("스트라이크 : " + strikeCount);
         return strikeCount;
     }
 
@@ -24,6 +26,8 @@ public class Computer {
                 ballCount += 1;
             }
         }
+        // TODO - 디버깅용
+        System.out.println("볼 : " + ballCount);
         return ballCount;
     }
 
