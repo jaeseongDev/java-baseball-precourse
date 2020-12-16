@@ -1,5 +1,7 @@
 package baseball.domain;
 
+import baseball.domain.ball.Ball;
+import baseball.domain.ball.Balls;
 import baseball.view.InputView;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ public class Game {
 
     public void start(Scanner scanner)  {
         try {
+            Computer computer = new Computer();
             getInputBalls(scanner);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

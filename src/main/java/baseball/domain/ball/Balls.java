@@ -1,4 +1,4 @@
-package baseball.domain;
+package baseball.domain.ball;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,5 +31,17 @@ public class Balls {
         if (balls.size() != notOverlappedBallsSize) {
             throw new IllegalArgumentException("중복된 숫자가 들어가면 안 된다.");
         }
+    }
+
+    public int size() {
+        return balls.size();
+    }
+
+    public Ball get(int index) {
+        return balls.get(index);
+    }
+
+    public boolean contains(Ball ball) {
+        return balls.contains(ball);
     }
 }
