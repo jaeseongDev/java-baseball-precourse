@@ -13,14 +13,19 @@ public class Game {
     private static final int STRIKE_FULL_COUNT = 3;
     public void start(Scanner scanner)  {
         try {
-            tryToStart(scanner);
+            playOneGame(scanner);
+            Status status = getInputRestartGame(scanner);
+            if (status == Status.RESTART) {
+                start(scanner);
+                return;
+            }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             start(scanner);
         }
     }
 
-    private void tryToStart(Scanner scanner) {
+    private void playOneGame(Scanner scanner) {
         Computer computer = new Computer();
         Balls inputBalls;
         do {
@@ -47,6 +52,16 @@ public class Game {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return getInputBalls(scanner);
+        }
+    }
+
+    private Status getInputRestartGame(Scanner scanner) {
+        try {
+            String input = InputView.inputRestartGame(scanner);
+            return Status.getStatusByNumber(input);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return getInputRestartGame(scanner);
         }
     }
 }
