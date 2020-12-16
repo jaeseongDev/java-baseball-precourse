@@ -23,4 +23,8 @@ public class OutputView {
     private static void printEmptyLine() {
         System.out.println();
     }
+
+    public static void printCorrectAnswer() {
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+    }
 }

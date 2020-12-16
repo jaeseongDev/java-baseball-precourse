@@ -10,21 +10,28 @@ import java.util.Scanner;
 import utils.StringUtils;
 
 public class Game {
-
+    private static final int STRIKE_FULL_COUNT = 3;
     public void start(Scanner scanner)  {
         try {
-            Computer computer = new Computer();
-            Balls inputBalls;
-            do {
-                inputBalls = getInputBalls(scanner);
-                int strikeCount = computer.countStrike(inputBalls);
-                int ballCount = computer.countBall(inputBalls);
-                OutputView.printStrikeAndBallCount(strikeCount, ballCount);
-            } while (!computer.isCorrectAnswer(inputBalls));
+            tryToStart(scanner);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             start(scanner);
         }
+    }
+
+    private void tryToStart(Scanner scanner) {
+        Computer computer = new Computer();
+        Balls inputBalls;
+        do {
+            inputBalls = getInputBalls(scanner);
+            int strikeCount = computer.countStrike(inputBalls);
+            int ballCount = computer.countBall(inputBalls);
+            OutputView.printStrikeAndBallCount(strikeCount, ballCount);
+            if (strikeCount == STRIKE_FULL_COUNT) {
+                OutputView.printCorrectAnswer();
+            }
+        } while (!computer.isCorrectAnswer(inputBalls));
     }
 
     private Balls getInputBalls(Scanner scanner) {
