@@ -14,20 +14,16 @@ public class Computer {
                 strikeCount += 1;
             }
         }
-        // TODO - 디버깅용
-        System.out.println("스트라이크 : " + strikeCount);
         return strikeCount;
     }
 
     public int countBall(Balls inputBalls) {
         int ballCount = 0;
         for (int i = 0; i < inputBalls.size(); i++) {
-            if (inputBalls.get(i) != balls.get(i) && balls.contains(inputBalls.get(i))) {
+            if (!inputBalls.get(i).equals(balls.get(i)) && balls.contains(inputBalls.get(i))) {
                 ballCount += 1;
             }
         }
-        // TODO - 디버깅용
-        System.out.println("볼 : " + ballCount);
         return ballCount;
     }
 

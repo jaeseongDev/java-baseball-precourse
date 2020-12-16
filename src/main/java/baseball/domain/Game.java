@@ -3,6 +3,7 @@ package baseball.domain;
 import baseball.domain.ball.Ball;
 import baseball.domain.ball.Balls;
 import baseball.view.InputView;
+import baseball.view.OutputView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,7 +17,9 @@ public class Game {
             Balls inputBalls;
             do {
                 inputBalls = getInputBalls(scanner);
-
+                int strikeCount = computer.countStrike(inputBalls);
+                int ballCount = computer.countBall(inputBalls);
+                OutputView.printStrikeAndBallCount(strikeCount, ballCount);
             } while (!computer.isCorrectAnswer(inputBalls));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
